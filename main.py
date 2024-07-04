@@ -10,14 +10,9 @@ from bs4 import BeautifulSoup
 url = "https://alifshop.tj"
 driver = webdriver.Chrome()
 driver.get(url)
-html_text = driver.page_source
-soup = BeautifulSoup(html_text, 'html.parser')
-phones = soup.find_all(class_='relative w-min')
-for phone in phones:
-    print('https://alifshop.tj' + phone.find('a')['href'])
-len(phones)
+
+
 categories = driver.find_elements(By.XPATH, "//div[@class='relative left-side py-5 bg-gray-200 block z-10']//li/a[contains(@href, '/category')]")[1:]
-data = []
 
 def get_data():
     product_dict = {}
